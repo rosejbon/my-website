@@ -1,13 +1,12 @@
 :root {
-  --primary-color: #302ae6;
-  --secondary-color: #536390;
-  --font-color: #424242;
+  --primary-color: #201f6e;
+  --secondary-color: #393691;
+  --font-color: #0e0d47;
   --bg-color: #faf9f6;
-  --heading-color: #292922;
+  --heading-color: #393691;
   --windows: #333333;
   --moon-sun: #ffe680ff;
   --floor: #dda0dd;
-
   /*Taken from https://utopia.fyi/space/calculator/?c=320,18,1.2,1240,20,1.25,5,2,&s=0.75|0.5|0.25,1.5|2|3|4|6,&g=s,l,xl,12*/
 
   --space-3xs: clamp(0.31rem, calc(0.31rem + 0.00vw), 0.31rem);
@@ -46,7 +45,7 @@
   --primary-color: #9a97f3;
   --secondary-color: #818cab;
   --font-color: #e1e1ff;
-  --bg-color: #161625;
+  --bg-color: #393691;
   --heading-color: #818cab;
   --windows: #ffe680ff;
   --moon-sun: #faf9f6;
@@ -54,7 +53,7 @@
 }
 
 html {
-  font-family: "Reenie Beanie", cursive;
+  font-family: "lato";
   font-size: var(--font-0);
   color: var(--font-color);
   line-height: 1.5;
@@ -69,9 +68,16 @@ h1,
 h2,
 h3,
 h4 {
-  font-family: "Cabin Sketch", cursive;
+  font-family: "Sansita One";
   line-height: 1.1;
   font-size: var(--font-2);
+}
+header {
+  display: flex;
+  justify-content: space-between;
+}
+nav{
+  width: 100%;
 }
 nav ul {
   list-style: none;
@@ -107,4 +113,47 @@ svg {
   display: grid;
   grid-gap: 1rem;
   grid-template-columns: repeat(auto-fit, minmax(min(250px, 100%), 1fr));
+  align-items: center;
+}
+.dark-mode {
+  display: flex;
+  align-items: center;
+  font-size: 0;
+  margin-top: 0;
+  margin-left: 1rem;
+  position: relative;
+}
+.dark-mode__checkbox {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+.dark-mode__toggle{
+  display: inline-flex;
+  align-items: center;
+  margin-top: 0;
+}
+.dark-mode__toggle::before {
+  content: "";
+  height: 1.5rem;
+  width: 3rem;
+  cursor: pointer;
+  background-color: var(--primary-color);
+  border-radius: 50px;
+  border: 0.2rem solid var(--primary-color);
+  transition: .4s;
+}
+.dark-mode__toggle::after {
+  content: "";
+  height: 1.4rem;
+  cursor: pointer;
+  width: 1.4rem;
+  background-color: var(--moon-sun);
+  border-radius: 15px;
+  position: absolute;
+  left: 0.2rem;
+  transition: .4s;
+}
+.dark-mode__checkbox:checked + .dark-mode__toggle::after {
+  transform: translateX(1.5rem);
 }
