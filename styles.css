@@ -29,6 +29,9 @@
   --space-xl-2xl: clamp(3.38rem, calc(2.81rem + 2.83vw), 5.00rem);
   --space-2xl-3xl: clamp(4.50rem, calc(3.46rem + 5.22vw), 7.50rem);
 
+  /* Custom pairs */
+  --space-s-3xl: clamp(1.13rem, calc(-1.09rem + 11.09vw), 7.50rem);
+
   /*Taken from https://utopia.fyi/type/calculator?c=320,18,1.2,1240,20,1.25,5,2,&s=0.75%7C0.5%7C0.25,1.5%7C2%7C3%7C4%7C6,&g=s,l,xl,12*/
 
   --font--2: clamp(0.78rem, calc(0.77rem + 0.03vw), 0.80rem);
@@ -58,8 +61,8 @@ html {
   color: var(--font-color);
   line-height: 1.5;
   background: var(--bg-color);
-  padding-left: var(--space-2xl-3xl);
-  padding-right:  var(--space-2xl-3xl);
+  padding-left: var(--space-s-3xl);
+  padding-right: var(--space-s-3xl);
 }
 * + * {
   margin-top: 1.5rem;
@@ -75,9 +78,11 @@ h4 {
 header {
   display: flex;
   justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
 }
 nav{
-  width: 100%;
+  flex-grow: 1
 }
 nav ul {
   list-style: none;
@@ -120,7 +125,6 @@ svg {
   align-items: center;
   font-size: 0;
   margin-top: 0;
-  margin-left: 1rem;
   position: relative;
 }
 .dark-mode__checkbox {
